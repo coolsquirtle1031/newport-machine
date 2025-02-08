@@ -1,0 +1,36 @@
+.active-memo {
+  border: 1px solid #b0b0b0;
+  border-radius: 5px;
+  height: 50px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.1),
+    /* Main shadow */ -2px -2px 4px rgba(255, 255, 255, 0.5); /* Light highlight */
+}
+
+.active-memo-top {
+  flex: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 5px;
+}
+
+.active-memo-title {
+  font-size: medium;
+  font-weight: bold;
+  color: #333;
+}
+
+.active-memo-date {
+  font-size: small;
+  color: grey;
+}
+
+.active-memo-bottom {
+  flex: 1;
+  font-size: small;
+  padding: 0 7px;
+  display: flex;
+  align-items: center;
+}
