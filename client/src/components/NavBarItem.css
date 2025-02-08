@@ -1,0 +1,32 @@
+.nav-bar-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  padding: 8px;
+  color: #fff; /* White text */
+  transition: color 0.3s ease-in-out;
+}
+
+.nav-bar-item-icon {
+  width: 24px;
+  height: 24px;
+  filter: invert(100%); /* Make icons white */
+  opacity: 0.8;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.nav-bar-item:hover {
+  color: #ddd; /* Light grey on hover */
+}
+
+.nav-bar-item:active {
+  color: #aaa; /* Slightly darker grey on active */
+}
+
+.nav-bar-item-label {
+  font-size: 10px;
+  letter-spacing: 0.5px;
+  font-family: "Noto Sans JP", serif;
+}
