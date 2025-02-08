@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import "./NavBarItem.css";
 
 interface NavBarItemProps {
@@ -8,9 +9,9 @@ interface NavBarItemProps {
 
 export default function NavBarItem(props: NavBarItemProps) {
   return (
-    <div className="nav-bar-item">
+    <Link to={props.routePath} className="nav-bar-item">
       <img className="nav-bar-item-icon" src={props.iconPath} />
       <div className="nav-bar-item-label">{props.label}</div>
-    </div>
+    </Link>
   );
 }

@@ -7,13 +7,13 @@ import NavBarItem from "./NavBarItem";
 export default function NavBar() {
   return (
     <nav className="nav-bar">
-      <NavBarItem routePath="test" label="Home" iconPath={homeIcon} />
+      <NavBarItem routePath="/" label="Home" iconPath={homeIcon} />
       <NavBarItem
-        routePath="test"
+        routePath="/playground"
         label="Playground"
         iconPath={playgroundIcon}
       />
-      <NavBarItem routePath="test" label="Archive" iconPath={archiveIcon} />
+      <NavBarItem routePath="/archive" label="Archive" iconPath={archiveIcon} />
     </nav>
   );
 }
