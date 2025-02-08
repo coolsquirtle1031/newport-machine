@@ -12,3 +12,10 @@ yarn-error.log*
 
 # MacOS system files
 .DS_Store
+
+# Ignore lock files (prevents tracking exact dependency versions)
+client/package-lock.json
+
+# Ignore TypeScript build configurations (if generated automatically)
+client/tsconfig.app.json
+client/tsconfig.node.json
