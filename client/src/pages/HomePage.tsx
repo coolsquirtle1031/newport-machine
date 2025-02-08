@@ -9,9 +9,14 @@ export default function HomePage() {
       </div>
       <div className="home-page-content-container">
         <div className="home-page-content">
-          <div>Loading!</div>
+          <div className="home-page-content-active-title">Active</div>
+          <div className="home-page-content-no-active-memo">
+            <div>You have no active memo yet! </div>
+            <div>Click the + button to add one</div>
+          </div>
         </div>
       </div>
+      <button className="home-page-add-button">+</button>
     </div>
   );
 }
