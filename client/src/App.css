@@ -1,0 +1,11 @@
+.app {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.page-content {
+  flex-grow: 1; /* Takes up all available space */
+  overflow-y: auto; /* Allows scrolling if content is long */
+  padding: 20px;
+}

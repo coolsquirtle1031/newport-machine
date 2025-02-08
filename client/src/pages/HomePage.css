@@ -1,0 +1,34 @@
+/* HomePage.tsx */
+.home-page {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+} /* consider how we can combine this with .add-text-page */
+
+.home-page-top {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 15px;
+  border-bottom: 1px solid grey;
+  font-family: "Noto Sans JP", serif;
+}
+
+.home-page-content-container {
+  flex: 10;
+  display: flex;
+  flex-direction: column;
+}
+
+.home-page-top-page {
+  font-size: x-large;
+  font-weight: bold;
+}
+
+.home-page-content {
+  display: flex;
+  flex-direction: column;
+  margin: 5px 15px;
+  height: 100%;
+}

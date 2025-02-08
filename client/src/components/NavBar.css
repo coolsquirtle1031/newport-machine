@@ -1,0 +1,12 @@
+.nav-bar {
+  height: 60px; /* Fixed navbar height */
+  background-color: #333;
+  color: white;
+  display: flex;
+  justify-content: space-around; /* Evenly space icons */
+  align-items: center;
+  padding: 10px 0;
+  position: sticky;
+  bottom: 0;
+  width: 100%;
+}
