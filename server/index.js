@@ -25,6 +25,16 @@ app.get("/api/users", async (req, res) => {
   }
 });
 
+app.get("/api/memos", async (req, res) => {
+  try {
+    const memos = await pool.query("SELECT * FROM memo");
+    res.json(memos.rows);
+  } catch (error) {
+    console.error(error);
+    res.status(500).send("Server Error");
+  }
+});
+
 // // Route to add a user
 // app.post("/api/users", async (req, res) => {
 //   try {
