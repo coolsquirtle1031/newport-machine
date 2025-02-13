@@ -3,13 +3,17 @@ import ActiveMemo from "../components/ActiveMemo";
 import "./HomePage.css";
 import { Memo } from "../types/memo";
 
+// http://localhost:5001
+// https://393e-2600-1700-74-290-c558-8d86-fd4-846b.ngrok-free.app
+
 export default function HomePage() {
   const [memos, setMemos] = useState<Memo[]>([]);
-
   useEffect(() => {
     const fetchMemos = async () => {
       try {
-        const response = await fetch("http://localhost:5001/api/memos");
+        const response = await fetch(
+          "https://393e-2600-1700-74-290-c558-8d86-fd4-846b.ngrok-free.app/api/memos"
+        );
         if (!response.ok) throw new Error("Failed to fetch memos");
         const fetchedMemos = await response.json();
         setMemos(fetchedMemos);
@@ -53,7 +57,9 @@ export default function HomePage() {
           )}
         </div>
       </div>
-      <button className="home-page-add-button">+</button>
+      <button className="home-page-add-button">
+        <div>+</div>
+      </button>
     </div>
   );
 }
