@@ -1,0 +1,14 @@
+{
+  "name": "newport-machine",
+  "scripts": {
+    "install": "npm install --prefix client && npm install --prefix server",
+    "dev": "concurrently \"npm run dev:client\" \"npm run dev:server\"",
+    "dev:client": "npm run dev --prefix client",
+    "dev:server": "npm run start --prefix server",
+    "build": "npm run build --prefix client",
+    "start": "npm run start --prefix server"
+  },
+  "dependencies": {
+    "concurrently": "^8.0.1"
+  }
+}
