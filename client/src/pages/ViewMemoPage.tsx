@@ -3,9 +3,12 @@ import "./ViewMemoPage.css";
 import { useParams } from "react-router-dom";
 import { Memo } from "../types/memo";
 
+export type ViewState = "view" | "repeat" | "fill-in-the-blank";
+
 export default function ViewMemoPage() {
   const { id } = useParams<{ id: string }>();
   const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [viewState, setViewState] = useState<ViewState>("view");
   const [memo, setMemo] = useState<Memo | undefined>(undefined);
 
   useEffect(() => {
@@ -51,11 +54,33 @@ export default function ViewMemoPage() {
                 placeholder={memo?.title}
                 readOnly={true}
               />
-              <textarea
-                className="view-memo-page-text-area"
-                placeholder={memo?.text}
-                readOnly={true}
-              />
+              {viewState === "view" && (
+                <textarea
+                  className="view-memo-page-text-area"
+                  placeholder={memo?.text}
+                  readOnly={true}
+                />
+              )}
+              {viewState === "repeat" && (
+                <>
+                  <textarea
+                    className="view-memo-page-text-area-repeat-placeholder"
+                    placeholder={memo?.text}
+                    readOnly={true}
+                  />
+                  <textarea
+                    className="view-memo-page-text-area-repeat-writer"
+                    placeholder="Freely practice here"
+                  />
+                </>
+              )}
+            </div>
+            <div className="view-memo-page-options">
+              <button onClick={() => setViewState("view")}>View</button>
+              <button onClick={() => setViewState("repeat")}>Repeat</button>
+              <button onClick={() => setViewState("fill-in-the-blank")}>
+                Fill
+              </button>
             </div>
           </div>
         </div>
