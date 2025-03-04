@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { memo, useEffect, useState } from "react";
 import ActiveMemo from "../components/ActiveMemo";
 import "./HomePage.css";
 import { Memo } from "../types/memo";
@@ -30,6 +30,10 @@ export default function HomePage() {
     navigate("/add");
   };
 
+  const handleClickOnMemo = (memoId: number) => {
+    navigate(`/view/${memoId}`);
+  };
+
   return (
     <div className="home-page">
       <div className="home-page-top">
@@ -54,9 +58,11 @@ export default function HomePage() {
                   return (
                     <ActiveMemo
                       key={memo.id}
+                      id={memo.id}
                       title={memo.title}
                       lastModified={memo.last_modified}
                       text={memo.text}
+                      onClick={handleClickOnMemo}
                     />
                   );
                 })}

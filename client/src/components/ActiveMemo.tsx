@@ -2,9 +2,11 @@ import { formatLastModified } from "../utils/date";
 import "./ActiveMemo.css";
 
 interface ActiveMemoProps {
+  id: number;
   title: string;
   lastModified: string;
   text: string;
+  onClick: (id: number) => void;
 }
 
 export default function ActiveMemo(props: ActiveMemoProps) {
@@ -14,8 +16,12 @@ export default function ActiveMemo(props: ActiveMemoProps) {
     return first45Characters + " ...";
   };
 
+  const handleClick = () => {
+    props.onClick(props.id);
+  };
+
   return (
-    <div className="active-memo">
+    <div className="active-memo" onClick={handleClick}>
       <div className="active-memo-top">
         <div className="active-memo-title">{props.title}</div>
         <div className="active-memo-date">

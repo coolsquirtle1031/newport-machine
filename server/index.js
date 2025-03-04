@@ -25,6 +25,22 @@ app.get("/api/users", async (req, res) => {
   }
 });
 
+app.get("/api/memo/:id", async (req, res) => {
+  try {
+    const { id } = req.params;
+    const memo = await pool.query("SELECT * FROM memo WHERE id = $1", [id]);
+
+    if (memo.rows.length === 0) {
+      return res.status(404).json({ error: "Memo not found" });
+    }
+
+    res.json(memo.rows[0]);
+  } catch (error) {
+    console.error("Error fetching memo:", error);
+    res.status(500).send("Server Error");
+  }
+});
+
 app.get("/api/memos", async (req, res) => {
   try {
     const memos = await pool.query("SELECT * FROM memo");
