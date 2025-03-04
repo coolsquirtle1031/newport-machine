@@ -35,6 +35,24 @@ app.get("/api/memos", async (req, res) => {
   }
 });
 
+app.post("/api/memo", async (req, res) => {
+  try {
+    const { title, text } = req.body;
+    if (!title || !text) {
+      throw new Error("Title and content is required");
+    }
+    const newMemo = await pool.query(
+      `INSERT INTO memo (title, text, last_modified) 
+       VALUES ($1, $2, CURRENT_TIMESTAMP) RETURNING *`,
+      [title, text]
+    );
+    res.status(201).json(newMemo.rows[0]);
+  } catch (error) {
+    console.error(error);
+    res.status(500).send("Server Error");
+  }
+});
+
 // // Route to add a user
 // app.post("/api/users", async (req, res) => {
 //   try {

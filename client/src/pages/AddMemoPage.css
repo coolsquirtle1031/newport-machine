@@ -1,0 +1,61 @@
+.add-memo-page {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  position: relative;
+  font-family: "Noto Sans JP", serif;
+}
+
+.add-memo-page-top {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 15px;
+  border-bottom: 1px solid grey;
+}
+
+.add-memo-page-content-container {
+  flex: 10;
+  display: flex;
+  flex-direction: column;
+}
+
+.add-memo-page-content {
+  display: flex;
+  flex-direction: column;
+  margin: 5px;
+  height: 100%;
+  position: relative;
+}
+
+.add-memo-page-title {
+  font-size: 20px;
+  font-weight: bold;
+  border: none;
+  background: transparent;
+  outline: none;
+  width: 100%;
+  padding: 5px 0;
+  transition: border-bottom 0.3s ease;
+}
+
+.add-memo-page-text-area {
+  font-size: 16px;
+  border: none;
+  background: transparent;
+  outline: none;
+  width: 100%;
+  height: 250px;
+  padding: 5px 0;
+  transition: border-bottom 0.3s ease;
+  resize: none; /* Prevent ugly resizing handles */
+}
+
+.add-memo-page-title:focus {
+  border: 1px solid black;
+}
+
+.add-memo-page-text-area:focus {
+  border: 1px solid black;
+}
