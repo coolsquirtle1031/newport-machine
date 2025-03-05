@@ -4,9 +4,7 @@ import "./HomePage.css";
 import { Memo } from "../types/memo";
 import { useNavigate } from "react-router-dom";
 import squirtlePath from "../images/squirtle.png";
-
-// http://localhost:5001
-// https://393e-2600-1700-74-290-c558-8d86-fd4-846b.ngrok-free.app
+import { API_URL } from "../config";
 
 export default function HomePage() {
   const navigate = useNavigate();
@@ -15,7 +13,7 @@ export default function HomePage() {
   useEffect(() => {
     const fetchMemos = async () => {
       try {
-        const response = await fetch("http://localhost:5001/api/memos");
+        const response = await fetch(`${API_URL}/api/memos`);
         if (!response.ok) throw new Error("Failed to fetch memos");
         const fetchedMemos = await response.json();
         setMemos(fetchedMemos);

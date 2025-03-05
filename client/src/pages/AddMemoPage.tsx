@@ -1,5 +1,6 @@
 import { useRef } from "react";
 import "./AddMemoPage.css";
+import { API_URL } from "../config";
 
 export default function AddMemoPage() {
   const titleRef = useRef<HTMLInputElement>(null);
@@ -11,7 +12,7 @@ export default function AddMemoPage() {
     try {
       const title = titleRef.current?.textContent ?? "";
       const text = textRef.current?.textContent ?? "";
-      const response = await fetch("http://localhost:5001/api/memos/", {
+      const response = await fetch(`${API_URL}/api/memos/`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ title, text }),

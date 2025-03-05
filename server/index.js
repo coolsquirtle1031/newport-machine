@@ -3,13 +3,31 @@ import cors from "cors";
 import dotenv from "dotenv";
 import pg from "pg";
 
+// https://newport-machine.onrender.com
+
 dotenv.config();
+const PORT = process.env.PORT || 5001;
 const app = express();
 app.use(cors());
 app.use(express.json());
 
 const pool = new pg.Pool({
   connectionString: process.env.DATABASE_URL,
+  ssl:
+    process.env.NODE_ENV === "production"
+      ? {
+          rejectUnauthorized: false,
+        }
+      : false,
+});
+
+// Test the database connection
+pool.query("SELECT 1", (err, res) => {
+  if (err) {
+    console.error("Database connection error:", err);
+  } else {
+    console.log("Database connected successfully!");
+  }
 });
 
 app.get("/", (req, res) => res.send("Backend is running!"));
@@ -84,4 +102,4 @@ app.post("/api/memo", async (req, res) => {
 //   }
 // });
 
-app.listen(5001, () => console.log("Server running on port 5001"));
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));

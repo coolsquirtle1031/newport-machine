@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import "./ViewMemoPage.css";
 import { useParams } from "react-router-dom";
 import { Memo } from "../types/memo";
+import { API_URL } from "../config";
 
 export type ViewState = "view" | "repeat" | "fill-in-the-blank";
 
@@ -15,7 +16,7 @@ export default function ViewMemoPage() {
     const fetchMemo = async () => {
       try {
         setIsLoading(true);
-        const response = await fetch(`http://localhost:5001/api/memo/${id}`, {
+        const response = await fetch(`${API_URL}/api/memo/${id}`, {
           method: "GET",
           headers: { "Content-Type": "application/json" },
         });
