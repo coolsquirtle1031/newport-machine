@@ -1,4 +1,4 @@
-import { memo, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import ActiveMemo from "../components/ActiveMemo";
 import "./HomePage.css";
 import { Memo } from "../types/memo";

@@ -3,8 +3,6 @@ import cors from "cors";
 import dotenv from "dotenv";
 import pg from "pg";
 
-// https://newport-machine.onrender.com
-
 dotenv.config();
 const PORT = process.env.PORT || 5001;
 const app = express();
