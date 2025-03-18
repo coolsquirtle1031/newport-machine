@@ -10,9 +10,10 @@ export default function AddMemoPage() {
     // make a post
     // load the viewMemoPage
     try {
-      const title = titleRef.current?.textContent ?? "";
-      const text = textRef.current?.textContent ?? "";
-      const response = await fetch(`${API_URL}/api/memos/`, {
+      const title = titleRef.current?.value ?? "";
+      const text = textRef.current?.value ?? "";
+      console.log(JSON.stringify({ title, text }));
+      const response = await fetch(`${API_URL}/api/memo/`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ title, text }),
